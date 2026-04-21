@@ -1,0 +1,25 @@
+{
+  "name": "basic-host-remote",
+  "workspaces": [
+    "./app1",
+    "./app2"
+  ],
+  "description": "Basic Host and Remote Example",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "pnpm --filter basic-host-remote_* run start",
+    "build": "pnpm --filter basic-host-remote_* run build",
+    "serve": "pnpm --filter basic-host-remote_* run serve",
+    "clean": "pnpm --filter basic-host-remote_* run reset",
+    "test:e2e": "npx playwright test",
+    "e2e:ci": "pnpm build && pnpm exec playwright test --reporter=list",
+    "legacy:e2e:ci": "echo \"No legacy e2e tests\""
+  },
+  "devDependencies": {
+    "concurrently": "8.2.2",
+    "wait-on": "7.2.0",
+    "@playwright/test": "1.58.2",
+    "playwright": "1.58.2"
+  }
+}
